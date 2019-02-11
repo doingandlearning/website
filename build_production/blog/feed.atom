@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>Kevin Cunningham</title>
+    <link href="https://my-jigsaw-blog.com" />
+    <link type="application/atom+xml" rel="self" href="https://my-jigsaw-blog.com/blog/feed.atom" />
+    <updated>2019-02-11T19:39:20+00:00</updated>
+    <id>https://my-jigsaw-blog.com/blog/feed.atom</id>
+    <author>
+        <name>Kevin Cunningham</name>
+    </author>
+                <entry>
+    <id>https://my-jigsaw-blog.com/blog/protecting-credentials</id>
+    <link type="text/html" rel="alternate" href="https://my-jigsaw-blog.com/blog/protecting-credentials" />
+    <title>Protecting Credentials</title>
+    <published>2019-02-11T00:00:00+00:00</published>
+    <updated>2019-02-11T00:00:00+00:00</updated>
+    <author>
+        <name>Kevin Cunningham</name>
+    </author>
+    <summary type="html">When working with any web application that requires a database for persistence, having access to the relevant credentials is vital.
+Keeping those same credentials in plain-text in a code repository is insecure and having them accessible in the web-root......</summary>
+    <content type="html"><![CDATA[
+        <p>When working with any web application that requires a database for persistence, having access to the relevant credentials is vital.</p>
+<p>Keeping those same credentials in plain-text in a code repository is insecure and having them accessible in the web-root can also pose security risks.</p>
+<p>To get round this, I've used the following approach on the last two projects I've worked on which may be useful to you. This has been a Drupal 7 and a Drupal 8 project and the approach has worked identically with both.</p>
+<p>At the moment, we provision the servers for our clients using Ansible and use those same scripts to provision our local VMs. We're currently investigating Docker for our development so this may well change.</p>
+<p>Create a template file that is going to hold your credentials and abstract the <code>$database</code> array and any other sensitive code to this file. </p>
+<p><code>database.settings.php.j2</code></p>
+<p>Use Ansible's template command to copy this file to the relevant place:</p>
+<pre><code>  - name: Write the database settings file
+    template:
+      src: templates/database.settings.php.j2
+      dest: {{configuration_path}}/database.settings.php
+      owner: www-data
+      group: www-data
+      mode: 0440</code></pre>
+<p>Make sure all of the usernames, passwords and other sensitive data are abstracted to a vault file and encrypted.</p>
+<p>Update your <code>settings.php</code> file to remove the credentials you have just abstracted and replace it with an <code>include_once</code> instruction.</p>
+<pre><code>/**
+ * Include the db settings that are stored outside of the webroot
+ */
+if (file_exists('/your/path/here/database.settings.php')) {
+  include_once '/your/path/here/database.settings.php';
+}</code></pre>
+<p>Make sure you run the provisioning script to allow the file to be in place and then deploy your code as normal.</p>
+<p>Now, the sensitive credentials are encrypted in your codebase and not available from your webroot. </p>
+<p>Why not update your database password while you're at it!</p>    ]]></content>
+</entry>
+    </feed>

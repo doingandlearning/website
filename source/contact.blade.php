@@ -8,9 +8,9 @@
 @endpush
 
 @section('body')
-<h1>Contact</h1>
+<h1>Feel free to get in touch here</h1>
 
-<form action="/contact" class="mb-12">
+<form action="https://formspree.io/contact@kevincunningham.co.uk" method="POST" class="mb-12">
     <div class="flex flex-wrap mb-6 -mx-3">
         <div class="w-full md:w-1/2 mb-6 md:mb-0 px-3">
             <label class="block mb-2 text-grey-darkest text-sm font-semibold" for="contact-name">
@@ -20,7 +20,7 @@
             <input
                 type="text"
                 id="contact-name"
-                placeholder="Jane Doe"
+                placeholder="Your name"
                 name="name"
                 class="block w-full border shadow rounded-lg outline-none mb-2 p-4"
                 required
@@ -35,7 +35,7 @@
             <input
                 type="email"
                 id="contact-email"
-                placeholder="email@domain.com"
+                placeholder="email@email.com"
                 name="email"
                 class="block w-full border shadow rounded-lg outline-none mb-2 p-4"
                 required

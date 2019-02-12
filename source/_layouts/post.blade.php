@@ -28,8 +28,10 @@
 
     <div class="border-b border-blue-lighter mb-10 pb-4" v-pre>
         @yield('content')
+        @foreach ($page->tags as $tag)
+          <a class="mr-2 text-xs rounded-full py-1 px-3 bg-grey-darkest text-grey-lighter hover:text-grey-lightest"  href="#">#{{ $tag }}</a>
+        @endforeach
     </div>
-
     <nav class="flex justify-between text-sm md:text-base">
         <div>
             @if ($next = $page->getNext())

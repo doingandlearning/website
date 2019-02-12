@@ -6,7 +6,7 @@ date: 2019-02-12
 description: Using the Drupal issue queue to contribute a patch
 featured: true
 cover_image: /assets/img/tools.jpg
-tag: Drupal, Open Source
+tags: [Drupal, OpenSource]
 author: Kevin Cunningham
 ---
 
@@ -36,9 +36,10 @@ git clone https://git.drupal.org/project/date_recur.git
 
 Next, copy in any of the code that you have changed in the module on your local machine. Running a `git status` command should show all of the changes you have made.
 
-Time now to create the patch. The naming standards for patches on Drupal are [description]-[issue-number]-[comment-number].patch. The *description* is the human readable summary of the issue, the *issue number* is found in the URL in the issue queue and the *comment number* is where your patch will be in the conversation.
+Time now to create the patch. The naming standards for patches on Drupal are [description]-[issue-number]-[comment-number].patch. The _description_ is the human readable summary of the issue, the _issue number_ is found in the URL in the issue queue and the _comment number_ is where your patch will be in the conversation.
 
 To make the patch I ran:
+
 ```
 git diff > apply_field_default_timezone_to_widget-3030603-3.patch
 ```

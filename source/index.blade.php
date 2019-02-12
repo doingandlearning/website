@@ -16,11 +16,16 @@
         <p
           class="font-light mt-8 text-lg text-left text-grey-darkest leading-loose max-w-md md:max-w-full mx-auto md:mx-0 lg:pr-24 xl:pr-32"
         >
-        Hi! I'm Kevin.
-      </p>
-<p>
-          Please be patient with me while I fill this site out. </p><p>Check out the <a href="/blog">blog</a> and <a href="/contact">get in touch</a> if you'd like. Alternatively, hit me up on <a href="www.twitter.com/dolearning">twitter</a>.
-      </p>
+          Hi! I'm Kevin.
+        </p>
+        <p>
+          I like to make things with code.
+        </p>
+        <p>
+          Check out the <a href="/blog">blog</a> and
+          <a href="/contact">get in touch</a> if you'd like. Alternatively, hit
+          me up on <a href="www.twitter.com/dolearning">twitter</a>.
+        </p>
       </div>
 
       <div

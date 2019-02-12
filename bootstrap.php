@@ -1,10 +1,7 @@
 <?php
-use App\Listeners\AddTagsPages;
 use TightenCo\Jigsaw\Loaders\CollectionRemoteItemLoader;
 use TightenCo\Jigsaw\Loaders\DataLoader;
 
-App\Listeners\AddArchivePages::register($container);
-App\Listeners\AddTagsPages::register($container);
 // @var $container \Illuminate\Container\Container
 // @var $events \TightenCo\Jigsaw\Events\EventBus
 

@@ -6,6 +6,7 @@ date: 2019-02-11
 description: Keeping credentials out of the webroot
 featured: true
 cover_image: /assets/img/desk-key.jpg
+tags: [Security, DevOps]
 ---
 
 When working with any web application that requires a database for persistence, having access to the relevant credentials is vital.
@@ -16,8 +17,7 @@ To get round this, I've used the following approach on the last two projects I'v
 
 At the moment, we provision the servers for our clients using Ansible and use those same scripts to provision our local VMs. We're currently investigating Docker for our development so this may well change.
 
-
-Create a template file that is going to hold your credentials and abstract the `$database` array and any other sensitive code to this file. 
+Create a template file that is going to hold your credentials and abstract the `$database` array and any other sensitive code to this file.
 
 `database.settings.php.j2`
 
@@ -48,6 +48,6 @@ if (file_exists('/your/path/here/database.settings.php')) {
 
 Make sure you run the provisioning script to allow the file to be in place and then deploy your code as normal.
 
-Now, the sensitive credentials are encrypted in your codebase and not available from your webroot. 
+Now, the sensitive credentials are encrypted in your codebase and not available from your webroot.
 
 Why not update your database password while you're at it!

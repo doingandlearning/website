@@ -14,14 +14,10 @@ return [
             'extends' => '_layouts.post',
             'path' => 'blog/{date|Y/m/d}/{-title}',
             'sort' => ['-date'],
+            'tags' => [],
         ],
-        'categories' => [
-            'path' => '/blog/categories/{filename}',
-            'posts' => function ($page, $allPosts) {
-                return $allPosts->filter(function ($post) use ($page) {
-                    return $post->categories ? in_array($page->getFilename(), $post->categories, true) : false;
-                });
-            },
+        'tags' => [
+            'path' => 'tag/{filename}',
         ],
     ],
 
@@ -49,9 +45,9 @@ return [
     'isActive' => function ($page, $path) {
         return ends_with(trimPath($page->getPath()), trimPath($path));
     },
-    'getPostsByTag' => function ($page, $posts) {
-        return $posts->filter(function ($post) use ($page) {
-            return in_array($page->tag, $post->tags ?? []);
+    'getPostsForTag' => function ($page, $articles, $tag) {
+        return $articles->filter(function ($article) use ($tag) {
+            return collect($article->tags)->contains($tag);
         });
     },
 

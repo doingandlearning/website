@@ -1,8 +1,8 @@
 <?php
 
 return [
-    'baseUrl' => 'https://www.kevincunningham.co.uk',
-    'production' => true,
+    'baseUrl' => '',
+    'production' => false,
     'siteName' => 'Kevin Cunningham',
     'siteDescription' => '',
     'siteAuthor' => 'Kevin Cunningham',
@@ -10,6 +10,7 @@ return [
     // collections
     'collections' => [
         'posts' => [
+            'author' => 'Kevin Cunningham',
             'extends' => '_layouts.post',
             'path' => 'blog/{date|Y/m/d}/{-title}',
             'sort' => ['-date'],

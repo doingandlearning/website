@@ -1,4 +1,7 @@
 <div class="flex flex-col mb-4">
+    <p class="text-grey-darkest font-medium my-2">
+{{$post->tag}}
+</p>
     <p class="text-grey-darker font-medium my-2">
         {{ $post->getDate()->format('F j, Y') }}
     </p>

@@ -1,8 +1,8 @@
 <?php
 
 return [
-    'baseUrl' => '',
-    'production' => false,
+    'baseUrl' => 'https://www.kevincunningham.co.uk',
+    'production' => true,
     'siteName' => 'Kevin Cunningham',
     'siteDescription' => '',
     'siteAuthor' => 'Kevin Cunningham',
@@ -10,9 +10,9 @@ return [
     // collections
     'collections' => [
         'posts' => [
-            'author' => 'Kevin Cunningham',
-            'sort' => '-date',
-            'path' => 'blog/{filename}',
+            'extends' => '_layouts.post',
+            'path' => 'blog/{date|Y/m/d}/{-title}',
+            'sort' => ['-date'],
         ],
         'categories' => [
             'path' => '/blog/categories/{filename}',
@@ -48,4 +48,10 @@ return [
     'isActive' => function ($page, $path) {
         return ends_with(trimPath($page->getPath()), trimPath($path));
     },
+    'getPostsByTag' => function ($page, $posts) {
+        return $posts->filter(function ($post) use ($page) {
+            return in_array($page->tag, $post->tags ?? []);
+        });
+    },
+
 ];

@@ -6,6 +6,7 @@ date: 2019-02-12
 description: Using the Drupal issue queue to contribute a patch
 featured: true
 cover_image: /assets/img/tools.jpg
+tag: Drupal, Open Source
 ---
 
 Somehow, I've been developing in Drupal for over a year now. I've worked with Drupal 7 and Drupal 8 sites, added functionality to existing sites and worked on teams building a site for a client from scratch.

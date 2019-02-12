@@ -1,6 +1,6 @@
 <div class="flex flex-col mb-4">
     <p class="text-grey-darkest font-medium my-2">
-{{$post->tag}}
+@include('_partials.tags', ['tags' => $post->tags])
 </p>
     <p class="text-grey-darker font-medium my-2">
         {{ $post->getDate()->format('F j, Y') }}

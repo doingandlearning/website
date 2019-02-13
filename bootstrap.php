@@ -23,5 +23,15 @@ use TightenCo\Jigsaw\Loaders\DataLoader;
 // $events->afterCollections(function ($jigsaw) use ($container) {
 //   $container->make(AddTagsPages::class)->handle($jigsaw);
 // });
+$container->bind(\TightenCo\Jigsaw\Handlers\CollectionItemHandler::class, function ($c) {
+  return new \TightenCo\Jigsaw\Handlers\CollectionItemHandler($c['config'], [
+      $c[\TightenCo\Jigsaw\Handlers\MarkdownHandler::class],
+      $c[\TightenCo\Jigsaw\Handlers\BladeHandler::class],
+  ]);
+});
+$container->bind(\App\Listeners\DownloadImages::class, function ($c) {
+  return new \App\Listeners\DownloadImages($c[\TightenCo\Jigsaw\Parsers\FrontMatterParser::class]);
+});
+
 $events->afterBuild(App\Listeners\GenerateSitemap::class);
 $events->afterBuild(App\Listeners\GenerateIndex::class);

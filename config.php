@@ -1,16 +1,19 @@
 <?php
 
+use Carbon\Carbon;
+
 return [
     'baseUrl' => '',
     'production' => false,
     'siteName' => 'Kevin Cunningham',
     'siteDescription' => '',
     'siteAuthor' => 'Kevin Cunningham',
+    'cover' => '',
 
     // collections
     'collections' => [
         'posts' => [
-            'author' => 'Kevin Cunningham',
+            'author' => 'Kevin',
             'extends' => '_layouts.post',
             'path' => 'blog/{date|Y/m/d}/{-title}',
             'sort' => ['-date'],
@@ -23,7 +26,7 @@ return [
 
     // helpers
     'getDate' => function ($page) {
-        return Datetime::createFromFormat('U', $page->date);
+      return Datetime::createFromFormat('U', $page->date);
     },
     'getExcerpt' => function ($page, $length = 255) {
         $content = $page->excerpt ?? $page->getContent();

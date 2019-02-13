@@ -10,7 +10,7 @@ class GenerateSitemap
     protected $exclude = [
         '/assets/*',
         '*/favicon.ico',
-        '*/404*'
+        '*/404'
     ];
 
     public function handle(Jigsaw $jigsaw)
@@ -30,7 +30,7 @@ class GenerateSitemap
                 return $this->isExcluded($path);
             })->each(function ($path) use ($baseUrl, $sitemap) {
                 $sitemap->addItem(rtrim($baseUrl, '/') . $path, time(), Sitemap::DAILY);
-        });
+            });
 
         $sitemap->write();
     }

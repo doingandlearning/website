@@ -4,7 +4,7 @@ section: content
 title: Protecting Credentials
 date: 2019-02-11
 description: Keeping credentials out of the webroot
-featured: true
+featured: false
 cover_image: /assets/img/desk-key.jpg
 tags: [Security, DevOps]
 ---

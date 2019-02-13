@@ -2,7 +2,7 @@
 namespace App\Listeners;
 
 use TightenCo\Jigsaw\Jigsaw;
-use App\Listeners\PseudoCollectionGenerator;
+use App\PseudoCollectionGenerator;
 use Illuminate\Support\Collection;
 
 class AddTagsPages extends PseudoCollectionGenerator

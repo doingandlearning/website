@@ -1,7 +1,6 @@
 <?php
 use TightenCo\Jigsaw\Loaders\CollectionRemoteItemLoader;
 use TightenCo\Jigsaw\Loaders\DataLoader;
-
 // @var $container \Illuminate\Container\Container
 // @var $events \TightenCo\Jigsaw\Events\EventBus
 
@@ -27,11 +26,13 @@ $container->bind(\TightenCo\Jigsaw\Handlers\CollectionItemHandler::class, functi
   return new \TightenCo\Jigsaw\Handlers\CollectionItemHandler($c['config'], [
       $c[\TightenCo\Jigsaw\Handlers\MarkdownHandler::class],
       $c[\TightenCo\Jigsaw\Handlers\BladeHandler::class],
+      $c[\App\Listeners\AddTagsPages::class],
+      $c[\App\Listeners\AddArchivePages::class],
   ]);
 });
-$container->bind(\App\Listeners\DownloadImages::class, function ($c) {
-  return new \App\Listeners\DownloadImages($c[\TightenCo\Jigsaw\Parsers\FrontMatterParser::class]);
-});
+//$container->bind(\App\Listeners\DownloadImages::class, function ($c) {
+//  return new \App\Listeners\DownloadImages($c[\TightenCo\Jigsaw\Parsers\FrontMatterParser::class]);
+//});
 
 $events->afterBuild(App\Listeners\GenerateSitemap::class);
 $events->afterBuild(App\Listeners\GenerateIndex::class);

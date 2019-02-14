@@ -1,5 +1,5 @@
 <?php
-namespace App\Listeners;
+namespace App;
 
 use Illuminate\Support\Arr;
 use TightenCo\Jigsaw\Jigsaw;

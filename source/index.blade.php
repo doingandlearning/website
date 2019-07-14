@@ -18,7 +18,7 @@
               class="font-light mt-8 text-lg text-left text-grey-darkest leading-loose max-w-md md:max-w-full mx-auto md:mx-0 lg:pr-24 xl:pr-32"
           >  Check out the <a href="/blog">blog</a> and
             <a href="/contact">get in touch</a> if you'd like. Alternatively, hit me
-            up on <a href="www.twitter.com/dolearning">twitter</a>.
+            up on <a href="http://www.twitter.com/dolearning">twitter</a>.
           </p>
         </div>
 

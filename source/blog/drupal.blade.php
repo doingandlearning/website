@@ -1,4 +1,4 @@
-@extends('_layouts.page')
+@extends('_layouts.master')
 
 @section('pageContent')
   <h1 class="text-4xl md:text-5xl lg:text-6xl font-normal">{{ $page->tag }}</h1>

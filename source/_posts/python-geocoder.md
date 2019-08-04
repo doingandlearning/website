@@ -2,7 +2,7 @@
 extends: _layouts.post
 section: content
 title: Python Geocoder
-date: 2019-07-07
+date: 2019-07-13
 description: A Guide to Managing Locations in Your Apps
 featured: true
 cover_image: /assets/img/compass.jpg

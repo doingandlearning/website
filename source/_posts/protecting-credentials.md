@@ -2,9 +2,9 @@
 extends: _layouts.post
 section: content
 title: Protecting Credentials
-date: 2019-02-11
+date: 2019-02-13
 description: Keeping credentials out of the webroot
-featured: false
+featured: true
 cover_image: /assets/img/desk-key.jpg
 tags: [Security, DevOps]
 ---

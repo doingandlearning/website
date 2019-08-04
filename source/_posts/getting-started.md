@@ -2,9 +2,9 @@
 extends: _layouts.post
 section: content
 title: The start of this site
-date: 2019-02-13
+date: 2019-02-10
 description: 
-featured: true
+featured: false
 cover_image: /assets/img/success.jpg
 tags: [Jigsaw, Laravel]
 ---
